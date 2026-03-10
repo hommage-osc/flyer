@@ -191,7 +191,7 @@ gtag('config', 'G-ZKJJKWNB34');
     background:linear-gradient(135deg, var(--blue-dark), var(--blue));
     color:#fff;
     border-radius:26px;
-    padding:28px;
+    padding:22px;
     box-shadow:0 14px 30px rgba(47,95,149,0.18);
     position:relative;
     overflow:hidden;
@@ -210,8 +210,8 @@ gtag('config', 'G-ZKJJKWNB34');
 
   .hero-left h1{
     margin:0;
-    font-size:34px;
-    line-height:1.22;
+    font-size:28px;
+    line-height:1.15;
     font-weight:900;
     letter-spacing:0.01em;
     position:relative;
@@ -248,7 +248,8 @@ gtag('config', 'G-ZKJJKWNB34');
   .hero-right img{
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:contain;
+    object-position:center;
     display:block;
   }
 
@@ -258,63 +259,63 @@ gtag('config', 'G-ZKJJKWNB34');
   }
 
   /* ===== title ===== */
-  .section-title{
-    font-size:22px;
-    font-weight:900;
-    color:var(--blue-dark);
-    margin:0 0 10px;
-    display:flex;
-    align-items:center;
-    gap:12px;
-  }
+.section-title{
+  font-size:19px;
+  font-weight:900;
+  color:var(--blue-dark);
+  margin:0 0 8px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
 
-  .section-title::before{
-    content:"";
-    width:8px;
-    height:42px;
-    border-radius:999px;
-    background:linear-gradient(180deg, var(--blue), var(--green));
-    flex-shrink:0;
-  }
+.section-title::before{
+  content:"";
+  width:7px;
+  height:34px;
+  border-radius:999px;
+  background:linear-gradient(180deg, var(--blue), var(--green));
+  flex-shrink:0;
+}
 
   /* ===== service detail cards ===== */
-  .service-detail-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-bottom:14px;
-  }
+.service-detail-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:14px;
+}
 
-  .detail-card{
-    background:#EEF4FB;
-    border:1.5px solid #C8D9ED;
-    border-radius:20px;
-    padding:14px 14px 12px;
-  }
+.detail-card{
+  background:#EEF4FB;
+  border:1.5px solid #C8D9ED;
+  border-radius:18px;
+  padding:14px 14px 12px;
+}
 
-  .detail-top{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:10px;
-  }
+.detail-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
 
-  .detail-item{
-    background:#FFFFFF;
-    border:1px solid #D0DFF0;
-    border-radius:12px;
-    padding:7px 12px;
-  }
+.detail-item{
+  background:#FFFFFF;
+  border:1px solid #D0DFF0;
+  border-radius:12px;
+  padding:7px 12px;
+}
 
-  .detail-circle{
-    width:112px;
-    height:112px;
-    border-radius:50%;
-    overflow:hidden;
-    flex-shrink:0;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-    background:#d9dee3;
-  }
+.detail-circle{
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  overflow:hidden;
+  flex-shrink:0;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+  background:#d9dee3;
+}
 
   .detail-circle img{
     width:100%;
@@ -323,40 +324,40 @@ gtag('config', 'G-ZKJJKWNB34');
     display:block;
   }
 
-  .detail-title-wrap h3{
-    margin:0 0 4px;
-    font-size:24px;
-    line-height:1.28;
-    font-weight:900;
-    color:var(--text);
-  }
+.detail-title-wrap h3{
+  margin:0 0 2px;
+  font-size:19px;
+  line-height:1.2;
+  font-weight:900;
+  color:var(--text);
+}
 
-  .detail-sub{
-    margin:0;
-    font-size:13px;
-    font-weight:800;
-    color:var(--blue);
-    letter-spacing:.04em;
-  }
+.detail-sub{
+  margin:0;
+  font-size:11px;
+  font-weight:800;
+  color:var(--blue);
+  letter-spacing:.03em;
+}
 
-  .detail-list{
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-  }
+.detail-list{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
 
-  .detail-label{
-    font-size:14px;
-    font-weight:900;
-    color:var(--blue-dark);
-    margin-bottom:2px;
-  }
+.detail-label{
+  font-size:12px;
+  font-weight:900;
+  color:var(--blue-dark);
+  margin-bottom:1px;
+}
 
-  .detail-text{
-    font-size:13px;
-    line-height:1.55;
-    color:var(--sub);
-  }
+.detail-text{
+  font-size:11px;
+  line-height:1.42;
+  color:var(--sub);
+}
 
   /* ===== flow ===== */
   .flow-box{
@@ -634,6 +635,36 @@ gtag('config', 'G-ZKJJKWNB34');
     padding: 0 14mm 8mm;
   }
 
+  /* ===== hero stats ===== */
+.hero-stats{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  position:relative;
+  z-index:2;
+}
+
+.stat-box{
+  background:rgba(255,255,255,0.18);
+  border:1.5px solid rgba(255,255,255,0.35);
+  border-radius:18px;
+  padding:10px 6px;
+  text-align:center;
+}
+
+.stat-num{
+  font-size:20px;
+  font-weight:900;
+  color:var(--yellow);
+}
+
+.stat-text{
+  font-size:11px;
+  font-weight:700;
+  color:#fff;
+}
+
 @media print {
   body {
     background: #fff !important;
@@ -652,6 +683,7 @@ gtag('config', 'G-ZKJJKWNB34');
       print-color-adjust: exact;
     }
   }
+
 </style>
 </head>
 <body>
@@ -690,6 +722,26 @@ gtag('config', 'G-ZKJJKWNB34');
           <span class="yellow">必要なときに、</span><br>
           <span class="green">必要な人数だけ。</span>
         </h1>
+
+        <div class="hero-stats">
+
+  <div class="stat-box">
+    <div class="stat-num">20年以上</div>
+    <div class="stat-text">イベント実績</div>
+  </div>
+
+  <div class="stat-box">
+    <div class="stat-num">1名〜</div>
+    <div class="stat-text"><br>小規模から対応可</div>
+  </div>
+
+  <div class="stat-box">
+    <div class="stat-num">4拠点</div>
+    <div class="stat-text"><br>東京・大阪・名古屋・福岡</div>
+  </div>
+
+</div>
+
       </div>
 
       <div class="hero-right">
