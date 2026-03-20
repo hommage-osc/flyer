@@ -4,19 +4,34 @@
   <meta charset="UTF-8">
   <title>Loading...</title>
 
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKJJKWNB34"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
     gtag('js', new Date());
-    gtag('config', 'G-ZKJJKWNB34', {
-      'transport_type': 'beacon'
-    });
+    gtag('config', 'G-ZKJJKWNB34');
+
+    // 取utm_content（客户编号）
+    function getParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name) || '';
+    }
 
     window.addEventListener('load', function() {
+
+      const qrId = getParam('utm_content');
+
+      // 发送事件
+      gtag('event', 'qr_redirect', {
+        qr_id: qrId
+      });
+
+      // 跳转（给1.5秒让GA发出去）
       setTimeout(function(){
         window.location.href = "https://www.hommage-osc.co.jp/company/";
-      }, 3000);
+      }, 1500);
     });
   </script>
 </head>
