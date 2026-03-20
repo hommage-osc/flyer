@@ -9,25 +9,28 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const utm_content = urlParams.get('utm_content');
+    const utm_source = urlParams.get('utm_source');
+    const utm_medium = urlParams.get('utm_medium');
+    const utm_campaign = urlParams.get('utm_campaign');
+
     gtag('config', 'G-ZKJJKWNB34', {
+      'campaign_source': utm_source,
+      'campaign_medium': utm_medium,
+      'campaign_name': utm_campaign,
+      'campaign_content': utm_content,
       'transport_type': 'beacon'
     });
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('utm_content');
-
-    if (id) {
-      gtag('event', 'qr_visit', {
-        flyer_id: id,
-        event_callback: function() {
-          window.location.href = "https://www.hommage-osc.co.jp/company/";
-        }
-      });
-    } else {
-      setTimeout(function(){
+    gtag('event', 'qr_visit', {
+      'flyer_id': utm_content,
+      'event_callback': function() {
         window.location.href = "https://www.hommage-osc.co.jp/company/";
-      }, 1500);
-    }
+      },
+      'event_timeout': 2000
+    });
   </script>
 </head>
 
