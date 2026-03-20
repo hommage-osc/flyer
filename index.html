@@ -9,22 +9,25 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-ZKJJKWNB34');
-  </script>
+    gtag('config', 'G-ZKJJKWNB34', {
+      'transport_type': 'beacon'
+    });
 
-  <script>
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('utm_content');
 
     if (id) {
       gtag('event', 'qr_visit', {
-        flyer_id: id
+        flyer_id: id,
+        event_callback: function() {
+          window.location.href = "https://www.hommage-osc.co.jp/company/";
+        }
       });
+    } else {
+      setTimeout(function(){
+        window.location.href = "https://www.hommage-osc.co.jp/company/";
+      }, 1500);
     }
-
-    setTimeout(function(){
-      window.location.href = "https://www.hommage-osc.co.jp/company/";
-    }, 1500);
   </script>
 </head>
 
