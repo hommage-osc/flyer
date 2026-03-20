@@ -9,11 +9,15 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-ZKJJKWNB34');
+    gtag('config', 'G-ZKJJKWNB34', {
+      'transport_type': 'beacon'
+    });
 
-    setTimeout(function(){
-      window.location.href = "https://www.hommage-osc.co.jp/company/";
-    }, 1500);
+    window.addEventListener('load', function() {
+      setTimeout(function(){
+        window.location.href = "https://www.hommage-osc.co.jp/company/";
+      }, 3000);
+    });
   </script>
 </head>
 
