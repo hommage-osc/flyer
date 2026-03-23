@@ -19,13 +19,13 @@
     window.addEventListener('load', function() {
       const qrId = getParam('utm_content');
 
-      // 发送GA4事件
+      // GA4イベント送信
       gtag('event', 'qr_redirect', {
         qr_id: qrId
       });
 
-      // 发送邮件通知
-      const scriptUrl = 'https://script.google.com/macros/s/AKfycbxOTt8gYHYSEDStHfsmAeaEAlF-j29ueb5PaykVP3HKEXAbkjCcQGxHNcx8SsDV9bK_xg/exec';
+      // Sheets記録＋メール通知
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbyuVZnPHZDIiA1m6zBl8--hrn__-eN7N84tTBNv_JOTMdjHP0DwasBnmM9dxUy2aYBLIg/exec';
       fetch(scriptUrl + '?qr_id=' + encodeURIComponent(qrId))
         .catch(function(){});
 
