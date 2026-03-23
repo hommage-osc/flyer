@@ -25,7 +25,7 @@
       });
 
       // 发送邮件通知
-      const scriptUrl = 'https://script.google.com/macros/s/AKfycbyM2qFQcZ78mgy3mTx1yWYCecT4Vni7rY-ClimUofQhSGewGn1rSgw4pTopUryB6fo95w/exec';
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbxOTt8gYHYSEDStHfsmAeaEAlF-j29ueb5PaykVP3HKEXAbkjCcQGxHNcx8SsDV9bK_xg/exec';
       fetch(scriptUrl + '?qr_id=' + encodeURIComponent(qrId))
         .catch(function(){});
 
