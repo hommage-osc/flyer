@@ -3,39 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Loading...</title>
-
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SE4BXZT3WW"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-
     gtag('js', new Date());
     gtag('config', 'G-SE4BXZT3WW');
 
-    // 取utm_content（客户编号）
     function getParam(name) {
       const url = new URL(window.location.href);
       return url.searchParams.get(name) || '';
     }
 
     window.addEventListener('load', function() {
-
       const qrId = getParam('utm_content');
 
-      // 发送事件
+      // 发送GA4事件
       gtag('event', 'qr_redirect', {
         qr_id: qrId
       });
 
-      // 跳转（给1.5秒让GA发出去）
+      // 发送邮件通知
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbyM2qFQcZ78mgy3mTx1yWYCecT4Vni7rY-ClimUofQhSGewGn1rSgw4pTopUryB6fo95w/exec';
+      fetch(scriptUrl + '?qr_id=' + encodeURIComponent(qrId))
+        .catch(function(){});
+
+      // 跳转
       setTimeout(function(){
         window.location.href = "https://www.hommage-osc.co.jp/company/";
       }, 1500);
     });
   </script>
 </head>
-
 <body style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;">
   <div>読み込み中...</div>
 </body>
