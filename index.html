@@ -1,42 +1,153 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>Loading...</title>
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SE4BXZT3WW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SE4BXZT3WW');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>株式会社オマージュ｜人材のご相談</title>
 
-    function getParam(name) {
-      const url = new URL(window.location.href);
-      return url.searchParams.get(name) || '';
-    }
+<!-- ============================================================
+★ 設定
+============================================================ -->
+<script>
+var CONFIG = {
+GA_ID: 'G-SE4BXZT3WW',
+SITE_URL: 'https://www.hommage-osc.co.jp/company/',
+FORM_URL: 'https://hommage-osc.github.io/contact-form-2/',
+LINE_URL: 'https://line.me/ti/p/YVMpBZuYqT',
+TEL: '090-0668-3899',
+OFFER: '初回ご利用時、スタッフの交通費を無料にいたします',
+SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbzW-9pF_kRC4iMjQDgfs0ujR3Swa7BOI4Q7uhJYdCvoNoh5hfyNrUus2xmXZsEF2qyBCg/exec' // Sheets記録＋メール通知
+};
+</script>
+<!-- ============================================================ -->
 
-    window.addEventListener('load', function() {
-      const qrId = getParam('utm_content');
+<script>
+// GA4 読み込み
+(function(){
+var s = document.createElement('script');
+s.async = true;
+s.src = 'https://www.googletagmanager.com/gtag/js?id=' + CONFIG.GA_ID;
+document.head.appendChild(s);
+})();
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', CONFIG.GA_ID);
 
-      // GA4イベント送信
-      gtag('event', 'qr_redirect', {
-        qr_id: qrId
-      });
+var QR_ID = new URLSearchParams(location.search).get('utm_content') || '';
 
-      // Sheets記録＋メール通知
-      const scriptUrl = 'https://script.google.com/macros/s/AKfycbyuVZnPHZDIiA1m6zBl8--hrn__-eN7N84tTBNv_JOTMdjHP0DwasBnmM9dxUy2aYBLIg/exec';
-      fetch(scriptUrl + '?qr_id=' + encodeURIComponent(qrId))
-        .catch(function(){});
+// ① GA4：スキャンを記録（旧ページと同じイベント名）
+gtag('event', 'qr_redirect', { qr_id: QR_ID });
 
-      // 跳转
-      setTimeout(function(){
-        window.location.href = "https://www.hommage-osc.co.jp/company/";
-      }, 1500);
-    });
-  </script>
+// ② Sheets記録＋メール通知（旧ページと同じ仕組み）
+if (CONFIG.SCRIPT_URL) {
+try {
+fetch(CONFIG.SCRIPT_URL + '?qr_id=' + encodeURIComponent(QR_ID),
+{ mode: 'no-cors', keepalive: true }).catch(function(){});
+} catch(e) {}
+}
+</script>
+
+<style>
+:root{
+--main:#1f4e8c; --accent:#e8792b; --line:#06c755;
+--bg:#f5f7fa; --text:#222; --sub:#666; --card:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+background:var(--bg);color:var(--text);line-height:1.7}
+.wrap{max-width:520px;margin:0 auto;padding:0 16px 40px}
+header{background:var(--main);color:#fff;padding:36px 16px 32px;text-align:center}
+header .company{font-size:13px;opacity:.85;letter-spacing:.05em}
+header h1{font-size:22px;line-height:1.5;margin-top:10px}
+header p{font-size:14px;margin-top:10px;opacity:.95}
+.offer{background:#fff4ea;border:2px solid var(--accent);border-radius:12px;
+padding:14px 16px;margin:-18px 0 0;position:relative;text-align:center}
+.offer .tag{display:inline-block;background:var(--accent);color:#fff;font-size:12px;
+font-weight:bold;padding:2px 10px;border-radius:99px;margin-bottom:6px}
+.offer p{font-size:15px;font-weight:bold;color:#8a3d0a}
+h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px solid var(--main)}
+.cards{display:grid;gap:10px}
+.card{background:var(--card);border-radius:12px;padding:14px 16px;
+box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card b{color:var(--main);font-size:15px}
+.card p{font-size:13px;color:var(--sub);margin-top:2px}
+.cta{display:grid;gap:10px;margin-top:8px}
+.btn{display:block;text-align:center;text-decoration:none;font-weight:bold;
+font-size:16px;padding:15px;border-radius:12px;color:#fff}
+.btn small{display:block;font-size:11px;font-weight:normal;opacity:.9}
+.btn-form{background:var(--accent)}
+.btn-line{background:var(--line)}
+.btn-tel{background:var(--main)}
+.btn-site{background:#fff;color:var(--main);border:2px solid var(--main)}
+footer{text-align:center;font-size:12px;color:var(--sub);margin-top:32px}
+</style>
 </head>
-<body style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;">
-  <div>読み込み中...</div>
+<body>
+
+<header>
+<div class="company">株式会社オマージュ</div>
+<h1>人手が足りない日に、<br>必要な人数だけ。</h1>
+<p>倉庫軽作業・イベント設営・オフィス移転<br>スタッフ派遣のご相談はこちら</p>
+</header>
+
+<div class="wrap">
+
+<div class="offer" id="offer">
+<span class="tag">チラシをご覧の方へ　初回特典</span>
+<p id="offer-text"></p>
+</div>
+
+<h2>オマージュが選ばれる理由</h2>
+<div class="cards">
+<div class="card"><b>1名・1日から対応</b><p>繁忙期のスポット依頼も、少人数からご相談いただけます。</p></div>
+<div class="card"><b>倉庫・イベント・移転に特化</b><p>現場経験のあるスタッフを中心に手配します。</p></div>
+<div class="card"><b>急なご依頼もまずはご相談を</b><p>日程・人数・作業内容をお伺いし、手配可否をすぐにご連絡します。</p></div>
+</div>
+
+<h2>お問い合わせ</h2>
+<div class="cta">
+<a class="btn btn-form" id="btn-form" data-cta="form" target="_blank" rel="noopener">
+無料相談フォーム<small>約1分・お見積りのみもOK</small></a>
+<a class="btn btn-line" id="btn-line" data-cta="line" target="_blank" rel="noopener">
+LINEで気軽に相談<small>担当者がチャットでお答えします</small></a>
+<a class="btn btn-tel" id="btn-tel" data-cta="tel">
+電話で相談する<small id="tel-label"></small></a>
+<a class="btn btn-site" id="btn-site" data-cta="site" target="_blank" rel="noopener">
+会社サイトを見る</a>
+</div>
+
+<footer>© 株式会社オマージュ</footer>
+</div>
+
+<script>
+// UTMを引き継いだリンクを作る
+function withUtm(base){
+if(!base) return '#';
+var sep = base.indexOf('?') === -1 ? '?' : '&';
+return location.search ? base + sep + location.search.slice(1) : base;
+}
+
+if(CONFIG.OFFER){ document.getElementById('offer-text').textContent = CONFIG.OFFER; }
+else { document.getElementById('offer').style.display = 'none'; }
+
+document.getElementById('btn-form').href = withUtm(CONFIG.FORM_URL);
+document.getElementById('btn-line').href = CONFIG.LINE_URL;
+document.getElementById('btn-tel').href = 'tel:' + CONFIG.TEL.replace(/[^0-9+]/g,'');
+document.getElementById('tel-label').textContent = CONFIG.TEL + '（平日 9:00〜18:00）';
+document.getElementById('btn-site').href = withUtm(CONFIG.SITE_URL);
+
+// ③ ボタンのクリックを記録
+document.querySelectorAll('[data-cta]').forEach(function(el){
+el.addEventListener('click', function(){
+gtag('event', 'cta_click', {
+cta: el.getAttribute('data-cta'),
+qr_id: QR_ID,
+transport_type: 'beacon'
+});
+});
+});
+</script>
 </body>
 </html>
